@@ -1,0 +1,28 @@
+div.meetings-grid table tr td.counter{
+    width: 35px;
+}
+
+div.meetings-grid table tr td.date{
+    width: 100px;
+}
+
+div.meetings-grid table tr td.time{
+    width: 160px;
+}
+
+div.meetings-grid table tr td.location{
+    width: 300px;
+}
+
+div.meetings-grid table tr td.subject{
+
+}
+
+div.meetings-grid table tr td.status{
+    width: 100px;
+}
+
+div.meetings-grid table tr td.action{
+    width: 80px;
+    text-align: center;
+}

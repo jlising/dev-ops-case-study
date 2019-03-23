@@ -1,0 +1,19 @@
+.form-control, button.btn{
+    height: 28px;
+    font-size: 11px;
+}
+
+.error-field {
+   border-color: #FF0000;
+}
+
+label{
+    font-weight: normal;
+}
+
+button.save-button{
+    width:80px;
+}
+button.cancel-button{
+     width:80px;
+}

@@ -1,0 +1,39 @@
+div.search-panel div.search-action-items{
+    width: 200px;
+}
+
+div.action-items-grid table tr td.counter{
+    width: 35px;
+}
+
+div.action-items-grid table tr td.title{
+    width: 200px;
+}
+
+div.action-items-grid table tr td.description{
+
+}
+
+div.action-items-grid table tr td.dateAdded{
+    width: 100px;
+}
+
+div.action-items-grid table tr td.dateDue{
+     width: 100px;
+}
+
+div.action-items-grid table tr td.action{
+    width: 185px;
+    text-align: center;
+}
+
+div.action-items-grid table tr td.required{
+    width: 120px;
+    text-align: center;
+}
+
+div.action-items-grid table tr td.action a.action-button{
+    height: 18px !important;
+    line-height: 4px !important;
+    font-size: 8px !important;
+}

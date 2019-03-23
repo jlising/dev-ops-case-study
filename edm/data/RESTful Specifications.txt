@@ -1,0 +1,139 @@
+# Login
+   URL: http://localhost:8888/login
+   METHOD: POST
+   BODY:
+   { "username": "ibm w3 id",  "password" :"ibm password" }
+   
+# List all employees
+	URL: http://localhost:8888/employee
+	METHOD: GET
+
+# Get employee by id
+	URL: http://localhost:8888/employee/{employeeId}
+	METHOD: GET
+
+# Add new employee
+
+	URL: http://localhost:8888/employee
+	METHOD: POST
+	BODY: 
+	{"lname" : "Adorna", "fname" : "Jaygee", "mname" : "", "suffix": "", "email" : "adornaj@ph.ibm.com", "serial" : "X91635PH1", "position" : "", "pem" : true}
+	
+	{"lname" : "Navarro", "fname" : "William", "mname" : "", "suffix": "", "email" : "navarrw@ph.ibm.com", "serial" : "147996PH1", "pem" : {"id" : "89328ad06007fa6201600805d0500005"},"position" : "Delivery Manager - Sprint", "pem" : true}
+
+
+# Update employee
+	URL: http://localhost:8888/employee/{employeeId}
+	METHO: PATCH
+	BODY:
+	{"lname" : "Adorna", "fname" : "Jaygee", "mname" : "", "email" : "adornaj@ph.ibm.com", "serial" : "xxxx"}
+	
+	{"lname" : "Navarro", "fname" : "William", "mname" : "", "email" : "navarrw@ph.ibm.com", "serial" : "xxxx", "pem" : {"id" : "ID HERE"}}
+	
+# Delete employee
+	URL: http://localhost:8888/employee/{employeeId}
+	METHO: DELETE
+	
+-------------------------------------------------------------------------------------
+
+# List all employee projects
+	URL: http://localhost:8888/employee/{employeeId}/project
+	METHOD: GET
+
+# Get employee project by id 
+	URL: http://localhost:8888/employee/{employeeId}/project/{employeeProjectId}
+	METHOD: GET
+	
+# Add new employee project
+	URL: http://localhost:8888/employee/{employeeId}/project
+	METHOD: POST
+	BODY:
+	{"employee" : {"id": "89328a2b5fdebb2e015fdebbc5ed0000"}, "teamName": "TEAM NAME HERE", "tl": {"id": "89328a2b5fdeb156015fdeb641880001"},"dm": {"id": "89328a2b5fdeb156015fdeb641880001"}, "shift": "3", "onCallSchedule": 0,"totalOnCallHours": "0"}
+	
+# Update employee project
+	URL: http://localhost:8888/employee/{employeeId}/project/{employeeProjectId}
+	METHOD: PATCH
+	BODY:
+	{"employee" : {"id": "89328a2b5fdebb2e015fdebbc5ed0000"}, "teamName": "TEAM NAME HERE", "tl": {"id": "89328a2b5fdeb156015fdeb641880001"},"dm": {"id": "89328a2b5fdeb156015fdeb641880001"}, "shift": "3", "onCallSchedule": 0,"totalOnCallHours": "0"}
+	
+# Delete employee project by id 
+	URL: http://localhost:8888/employee/{employeeId}/project/{employeeProjectId}
+	METHOD: DELETE
+	
+-------------------------------------------------------------------------------------
+
+# List all employee contacts
+	URL: http://localhost:8888/employee/{employeeId}/contact
+	METHOD: GET
+	
+# Get employee contact by id 
+	URL: http://localhost:8888/employee/{employeeId}/project/{employeeContactId}
+	METHOD: GET
+	
+# Add new employee contact
+	URL: http://localhost:8888/employee/{employeeId}/contact
+	METHOD: POST
+	BODY:
+	{"employee" : {"id" : "89d0f5f55ffd8dbb015ffd8ea9ab0000"}, "priority": "1", "emailAddress": "lisingj@ph.ibm.com", "homeEmployeeAddress": { "employee": {"id": "89d0f5f55ffd8dbb015ffd8ea9ab0000"}, "address1": "118 Purok 2", "address2": "Lacmit", "city": "Arayat, Pampanga", "country": "Philippines", "state": "", "zip": "2012" }, "businessEmployeeAddress": { "employee": {"id": "89d0f5f55ffd8dbb015ffd8ea9ab0000"}, "address1": "118 Purok 2", "address2": "Lacmit", "city": "Arayat, Pampanga", "country": "Philippines", "state": "", "zip": "2012" }, "mobileNumber": "+63923 210 4978", "homePhoneNumber": "+63923 210 4978"}
+	
+# Update employee contact
+	URL: http://localhost:8888/employee/{employeeId}/contact/{employeeContactId}
+	METHOD: PATCH
+	BODY:
+	{"employee" : {"id" : "89d0f5f55ffd9661015ffda1249b0000"}, "priority": "1", "emailAddress": "lisingj@ph.ibm.com", "homeEmployeeAddress": { "employee": {"id": "89d0f5f55ffd9661015ffda1249b0000"}, "address1": "118 Purok 2", "address2": "Lacmit", "city": "Arayat, Pampanga", "country": "Philippines", "state": "", "zip": "2012" }, "businessEmployeeAddress": { "employee": {"id": "89d0f5f55ffd9661015ffda1249b0000"}, "address1": "118 Purok 2", "address2": "Lacmit", "city": "Arayat, Pampanga", "country": "Philippines", "state": "", "zip": "2012" }, "mobileNumber": "+63923 210 4978", "homePhoneNumber": "+63923 210 4978"}
+	
+# Delete employee contact by id 
+	URL: http://localhost:8888/employee/{employeeId}/contact/{employeeContactId}
+	METHOD: DELETE
+	
+-------------------------------------------------------------------------------------
+
+# List all employee employeeReimbursements
+	URL: http://localhost:8888/employee/{employeeId}/reimbursement
+	METHOD: GET
+	
+# Get employee BCP by id 
+	URL: http://localhost:8888/employee/{employeeId}/reimbursement/{employeeReimbursemeId}
+	METHOD: GET
+	
+# Add new employee reimbursement
+	URL: http://localhost:8888/employee/{employeeId}/reimbursement
+	METHOD: POST
+	BODY:
+	{"employee" : {"id" : "89328a2b5fdebb2e015fdebbc5ed0000"}, "broadBand": true, "mobileData": true, "mobileDevice": false, "employeeProject": { "id" : "89328a2b5fded32e015fded959780001"}}
+	
+# Update employee reimbursement
+	URL: http://localhost:8888/employee/{employeeId}/reimbursement/{employeeBCPId}
+	METHOD: PATCH
+	BODY:
+	{"employee" : {"id" : "89328a2b5fdebb2e015fdebbc5ed0000"}, "broadBand": false, "mobileData": false, "mobileDevice": false, "employeeProject": { "id" : "89328a2b5fded32e015fded959780001"}}
+	
+# Delete employee reimbursement by id 
+	URL: http://localhost:8888/employee/{employeeId}/reimbursement/{employeeContactId}
+	METHOD: DELETE
+	
+	-------------------------------------------------------------------------------------
+
+# List all employee skillset
+	URL: http://localhost:8888/employee/{employeeId}/skillset
+	METHOD: GET
+	
+# Get employee skillset by id 
+	URL: http://localhost:8888/employee/{employeeId}/skillset/{employeeSkillSetId}
+	METHOD: GET
+	
+# Add new employee skillset
+	URL: http://localhost:8888/employee/{employeeId}/skillset
+	METHOD: POST
+	BODY:
+	{"employee" : {"id" : "8a3d68075fe4b517015fe4bd84760002"}, "primary": "Web Technologies","secondary" : "Java.Core", "jrss": "Web Development"}
+	
+# Update employee reimbursement
+	URL: http://localhost:8888/employee/{employeeId}/skillset/{employeeSkillSetId}}
+	METHOD: PATCH
+	BODY:
+	{"employee" : {"id" : "8a3d68075fe4b517015fe4bd84760002"}, "primary": "Web Technologies","secondary" : "Java.Core", "jrss": "Web Development"}
+	
+# Delete employee reimbursement by id 
+	URL: http://localhost:8888/employee/{employeeId}/reimbursement/{employeeContactId}
+	METHOD: DELETE

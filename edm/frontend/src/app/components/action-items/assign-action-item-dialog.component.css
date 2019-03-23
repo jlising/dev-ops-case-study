@@ -1,0 +1,52 @@
+.mat-dialog-container{
+    padding: 5px;
+    overflow: hidden;
+}
+.panel-title{
+    font-size: 11px;
+    font-weight: bold;
+}
+.dialog-panel{
+    margin-bottom: 0px;
+}
+span.panel-icon{
+    color: #34495E;
+    margin-top: -12px;
+    margin-right: -15px;
+}
+
+div.alert{
+    padding: 5px;
+    width: 98%;
+    margin-left: 10px;
+}
+
+div.search-panel div.search-employees{
+    width: 200px;
+}
+
+div.employees-grid table tr td.counter{
+    width: 35px;
+}
+
+div.employees-grid table tr td.serial{
+    width: 100px;
+}
+
+div.employees-grid table tr td.name{
+    width: 350px;
+}
+
+div.employees-grid table tr td.email{
+
+}
+div.employees-grid table tr td.action{
+    width: 190px;
+    text-align: center;
+}
+
+div.employees-grid table tr td.action a.action-button{
+    height: 18px !important;
+    line-height: 4px !important;
+    font-size: 8px !important;
+}

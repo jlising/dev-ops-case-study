@@ -1,0 +1,25 @@
+div.grid{
+    padding : 0;
+}
+
+table.table-content{
+     margin-bottom: 10px;
+     border-bottom: 1px solid #ccc;
+}
+
+table.table-header{
+    margin-bottom: 0px;
+    background-color: #FFFFFF !important;
+}
+
+table.table-content{
+ background-color: #FFFFFF !important;
+}
+
+table.table-header tr td {
+    font-weight:bold;
+}
+
+ul.pagination{
+    margin:0;
+}

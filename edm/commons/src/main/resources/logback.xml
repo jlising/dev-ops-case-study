@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <withJansi>true</withJansi>
+    <encoder>
+      <pattern>%-30(%d{HH:mm:ss.SSS} [%thread]) %-5level %logger{32} - %msg%n
+      </pattern>
+      <outputPatternAsHeader>false</outputPatternAsHeader>
+    </encoder>
+  </appender>
+
+  <appender name="LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>./logs/gator.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <fileNamePattern>./logs/gator.%d{yyyy-MM-dd}.%i.zip</fileNamePattern>
+      <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        <maxFileSize>100MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+      <!-- keep 30 days' worth of history -->
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] %-18.18thread [%.-1level] %-45.45logger{30} %msg %ex %n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- APP LOGGER -->
+  <logger level="DEBUG" additivity="true" name="com.owens"/>
+  <!-- LIB LOGGER-->
+  <logger level="DEBUG" additivity="true" name="org.hibernate"/>
+  <logger level="DEBUG" additivity="true" name="org.springframework"/>
+
+  <!-- ROOT LOGGER -->
+
+  <root level="debug">
+    <appender-ref ref="LOG_FILE"/>
+  </root>
+  <root level="info">
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>

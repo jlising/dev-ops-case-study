@@ -1,0 +1,302 @@
+<div class="dialog-panel panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Employee Information</h3>
+    <span class="glyphicon glyphicon-user pull-right panel-icon">&nbsp;</span>
+  </div>
+  <div class="panel-body">
+      <mat-dialog-content>
+          <div class="col-sm-12 grid employees-grid">
+            <div class="row grid dialog-row">
+              <div class="col-xs-3">
+                Serial&nbsp;:
+              </div>
+              <div class="col-xs-4">
+                Name&nbsp;:
+              </div>
+              <div class="col-xs-5">
+                People&nbsp;Manager&nbsp;:
+              </div>
+            </div>
+            <div class="row grid">
+              <div class="col-xs-3">
+                {{ employeeProfileDialogModel.serial }}
+              </div>
+              <div class="col-xs-4">
+                {{ employeeProfileDialogModel.fname }} {{ employeeProfileDialogModel.mname }} {{ employeeProfileDialogModel.lname }} {{ employeeProfileDialogModel.suffix }}
+              </div>
+              <div class="col-xs-5" *ngIf="employeeProfileDialogModel.peopleManager != undefined">
+                {{ employeeProfileDialogModel.peopleManager.fname }} {{ employeeProfileDialogModel.peopleManager.mname }} {{ employeeProfileDialogModel.peopleManager.lname }} {{ employeeProfileDialogModel.peopleManager.suffix }}
+              </div>
+              <div class="col-xs-5" *ngIf="employeeProfileDialogModel.peopleManager == undefined">
+                &nbsp;
+              </div>
+            </div>
+
+            <div class="row grid dialog-row">
+              <div class="col-xs-4">
+                Position&nbsp;:
+              </div>
+              <div class="col-xs-3">
+                People Manager?&nbsp;:
+              </div>
+              <div class="col-xs-3">
+                Delivery Manager?&nbsp;:
+              </div>
+              <div class="col-xs-2">
+                Team Lead?&nbsp;:
+              </div>
+            </div>
+            <div class="row grid">
+              <div class="col-xs-4">
+                {{ employeeProfileDialogModel.position }}
+              </div>
+              <div class="col-xs-3">
+                {{ employeeProfileDialogModel.pem ? "YES" : "NO" }}
+              </div>
+              <div class="col-xs-3">
+                {{ employeeProfileDialogModel.dm ? "YES" : "NO" }}
+              </div>
+              <div class="col-xs-2">
+                {{ employeeProfileDialogModel.tl ? "YES" : "NO" }}
+              </div>
+            </div>
+
+            <div class="row grid dialog-row">
+              <div class="col-xs-7">
+                Primary&nbsp;Skill&nbsp;Set&nbsp;:
+              </div>
+              <div class="col-xs-5">
+                Secondary&nbsp;Skill&nbsp;Set&nbsp;:
+              </div>
+            </div>
+            <div class="row grid">
+              <div class="col-xs-7">
+                {{ employeeProfileDialogModel.primarySkillSet }}
+              </div>
+              <div class="col-xs-5">
+                {{ employeeProfileDialogModel.secondarySkillSet }}
+              </div>
+            </div>
+
+            <div class="row grid dialog-row">
+              <div class="col-xs-7">
+                JRSS&nbsp;:
+              </div>
+              <div class="col-xs-5">
+                IBM Email&nbsp;:
+              </div>
+            </div>
+            <div class="row grid">
+              <div class="col-xs-7">
+                {{ employeeProfileDialogModel.jrss }}
+              </div>
+              <div class="col-xs-5">
+                {{ employeeProfileDialogModel.email }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Details -->
+          <div class="col-sm-12 grid employees-grid" *ngFor="let employeeContact of employeeProfileDialogModel.employeeContacts">
+            <div class="row grid dialog-row">
+              <div class="col-xs-3">
+                Email&nbsp;:
+              </div>
+              <div class="col-xs-4">
+                Mobile&nbsp;#&nbsp;:
+              </div>
+              <div class="col-xs-5">
+                Home&nbsp;Phone&nbsp;#&nbsp;:
+              </div>
+            </div>
+            <div class="row grid">
+              <div class="col-xs-3">
+                {{ employeeContact.emailAddress }}
+              </div>
+              <div class="col-xs-4">
+                {{ employeeContact.mobileNumber }}
+              </div>
+              <div class="col-xs-5">
+                {{ employeeContact.homePhoneNumber }}
+              </div>
+            </div>
+
+            <div class="row grid dialog-row">
+              <div class="col-xs-7">
+                Business/Work Address&nbsp;:
+              </div>
+              <div class="col-xs-5">
+                Home Address&nbsp;:
+              </div>
+            </div>
+            <div class="row grid" *ngIf="employeeContact.businessEmployeeAddress != undefined">
+              <div class="col-xs-7">
+                {{ employeeContact.businessEmployeeAddress.address1 }}
+                {{ employeeContact.businessEmployeeAddress.address2 }}
+                {{ employeeContact.businessEmployeeAddress.city }}
+                {{ employeeContact.businessEmployeeAddress.country }}
+                {{ employeeContact.businessEmployeeAddress.state }}
+                {{ employeeContact.businessEmployeeAddress.zip}}
+              </div>
+              <div class="col-xs-5" *ngIf="employeeContact.businessEmployeeAddress != undefined">
+                {{ employeeContact.homeEmployeeAddress.address1 }}
+                {{ employeeContact.homeEmployeeAddress.address2 }}
+                {{ employeeContact.homeEmployeeAddress.city }}
+                {{ employeeContact.homeEmployeeAddress.country }}
+                {{ employeeContact.homeEmployeeAddress.state }}
+                {{ employeeContact.homeEmployeeAddress.zip }}
+              </div>
+              <div class="col-xs-7" *ngIf="employeeContact.businessEmployeeAddress == undefined">
+                &nbsp;
+              </div>
+              <div class="col-xs-5" *ngIf="employeeContact.businessEmployeeAddress == undefined">
+                &nbsp;
+              </div>
+            </div>
+          </div>
+
+          <!-- Team -->
+          <div class="col-sm-12 grid employees-grid" *ngFor="let employeeProject of employeeProfileDialogModel.employeeProjects">
+            <div class="row grid dialog-row">
+              <div class="col-xs-3">
+                Team Name&nbsp;:
+              </div>
+              <div class="col-xs-4">
+                Lead&nbsp;:
+              </div>
+              <div class="col-xs-5">
+                Delivery Manager&nbsp;:
+              </div>
+
+            </div>
+            <div class="row grid">
+              <div class="col-xs-3">
+                {{ employeeProject.teamName }}
+              </div>
+              <div class="col-xs-4" *ngIf="employeeProject.teamLead != undefined">
+                {{ employeeProject.teamLead.fname }} {{ employeeProject.teamLead.mname }} {{ employeeProject.teamLead.lname }}
+              </div>
+              <div class="col-xs-5" *ngIf="employeeProject.deliveryManager != undefined">
+                {{ employeeProject.deliveryManager.fname }} {{ employeeProject.deliveryManager.mname }} {{ employeeProject.deliveryManager.lname }}
+              </div>
+
+              <div class="col-xs-4" *ngIf="employeeProject.teamLead == undefined">
+                &nbsp;
+              </div>
+              <div class="col-xs-5" *ngIf="employeeProject.deliveryManager == undefined">
+                &nbsp;
+              </div>
+            </div>
+
+            <div class="row grid dialog-row">
+            <div class="col-xs-3">
+              Work Schedule&nbsp;:
+            </div>
+            <div class="col-xs-4">
+              On-call Schedule&nbsp;:
+            </div>
+            <div class="col-xs-5">
+              Total On-call Hours&nbsp;:
+            </div>
+          </div>
+            <div class="row grid">
+              <div class="col-xs-3">
+                {{ employeeProject.shift }}
+              </div>
+              <div class="col-xs-4">
+                {{ employeeProject.onCallSchedule }}
+              </div>
+              <div class="col-xs-5">
+                {{ employeeProject.totalOnCallHours }}
+              </div>
+            </div>
+
+            <div class="row grid dialog-row">
+              <div class="col-xs-4">
+                Email Address&nbsp;(Project)
+              </div>
+              <div class="col-xs-4">
+                Capped?&nbsp;:
+              </div>
+              <div class="col-xs-4">
+                Capped Hours?&nbsp;:
+              </div>
+            </div>
+            <div class="row grid">
+              <div class="col-xs-4">
+                {{ employeeProject.projectEmailAddress }}
+              </div>
+              <div class="col-xs-4">
+                {{ employeeProject.capped == 'NO' ? "N/A" : employeeProject.capped == 'DAILY' ? 'Daily' : employeeProject.capped == 'WEEKLY' ? 'Weekly' : '' }}
+              </div>
+              <div class="col-xs-4">
+                {{ employeeProject.cappedHours }}
+              </div>
+            </div>
+
+            <div class="row grid dialog-row">
+              <div class="col-xs-3">
+                BCP Role&nbsp;:
+              </div>
+              <div class="col-xs-4">
+                Critical Service Supported?&nbsp;:
+              </div>
+              <div class="col-xs-5">
+                Backup&nbsp;:
+              </div>
+            </div>
+            <div class="row grid">
+              <div class="col-xs-3">
+                {{ employeeProject.bcpRole == 'BCP_CRITICAL' ? "BCP Critical Resource" : employeeProject.bcpRole == 'NON_BCP_CRITICAL' ? 'Non-BCP critical Resource' : employeeProject.bcpRole == 'BACKUP_TO_BCP' ? 'Backup to BCP Critical Resource' : '' }}
+              </div>
+              <div class="col-xs-4">
+                {{ employeeProject.criticalServiceSupported ? "YES" : "NO" }}
+              </div>
+              <div class="col-xs-5" *ngIf="employeeProject.employeeBackup != undefined">
+                {{ employeeProject.employeeBackup.fname }} {{ employeeProject.employeeBackup.mname }} {{ employeeProject.employeeBackup.lname }}
+              </div>
+              <div class="col-xs-5" *ngIf="employeeProject.employeeBackup == undefined">
+                &nbsp;
+              </div>
+            </div>
+          </div>
+
+          <!-- Reimbursements -->
+          <div class="col-sm-12 grid employees-grid" *ngFor="let employeeReimbursement of employeeProfileDialogModel.employeeReimbursements">
+            <div class="row grid dialog-row">
+              <div class="col-xs-3">
+                Broadband?&nbsp;:
+              </div>
+              <div class="col-xs-4">
+                Mobile Data?&nbsp;:
+              </div>
+              <div class="col-xs-5">
+                Mobile Device?&nbsp;
+              </div>
+            </div>
+            <div class="row grid">
+              <div class="col-xs-3">
+                {{ employeeReimbursement.broadBand ? "YES" : "NO" }}
+              </div>
+              <div class="col-xs-4">
+                {{ employeeReimbursement.mobileData ? "YES" : "NO" }}
+              </div>
+              <div class="col-xs-5">
+                {{ employeeReimbursement.mobileDevice ? "YES" : "NO" }}
+              </div>
+            </div>
+          </div>
+      </mat-dialog-content>
+  </div>
+</div>
+<mat-dialog-actions>
+  <div style="width:50%;line-height: 32px !important">
+    <span>Last Update: {{ employeeProfileDialogModel.dateUpdated != undefined ? (employeeProfileDialogModel.dateUpdated | date) : "" }} </span>
+    &nbsp;
+    <span>Updated By: {{ employeeProfileDialogModel.updatedBy != undefined ? employeeProfileDialogModel.updatedBy.fname : ""}} {{ employeeProfileDialogModel.updatedBy != undefined ? employeeProfileDialogModel.updatedBy.lname : ""}}</span>
+  </div>
+
+  <div style="width:50%;">
+    <button class="btn btn-warning pull-right cancel-button" mat-button mat-dialog-close>Ok</button>
+  </div>
+</mat-dialog-actions>

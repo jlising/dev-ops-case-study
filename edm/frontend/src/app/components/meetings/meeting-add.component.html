@@ -1,0 +1,149 @@
+<div class="container">
+  <div class="row panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">New Minutes of Meeting</h3>
+      <span class="glyphicon glyphicon-file pull-right panel-icon">&nbsp;</span>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <form #frmMeeting="ngForm" name="frmMeeting">
+          <div class="col-sm-11">
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="row form-group">
+                  <div class="col-xs-12">
+                    <label for="txtSubject">Subject&nbsp;<span style="color: #ff0000">*</span></label>
+                    <input [(ngModel)]="meetingModel.subject" class="form-control" id="txtSubject" name="subject" required="true" type="text">
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-xs-12">
+                    <label for="txtLocation">Location&nbsp;<span style="color: #ff0000">*</span></label>
+                    <input [(ngModel)]="meetingModel.location" class="form-control" id="txtLocation" name="subject" required="true" type="text">
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-xs-4">
+                    <label for="txtStart">Start&nbsp;<span style="color: #ff0000">*</span></label>
+                    <input [(ngModel)]="meetingModel.start" style="width: 150px" class="inline form-control" id="txtStart" name="start" required="true" type="text">
+                  </div>
+                  <div class="col-xs-4">
+                    <label for="txtEnd">End&nbsp;<span style="color: #ff0000">*</span></label>
+                    <input [(ngModel)]="meetingModel.end" style="width: 150px" class="inline form-control" id="txtEnd" name="start" required="true" type="text">
+                  </div>
+                </div>
+
+                <div class="row form-group">
+                  <div class="col-xs-12">
+                    <label for="cboFacilitator">Facilitator&nbsp;<span style="color: #ff0000">*</span></label>
+                    <div class="input-group">
+                      <select [(ngModel)]="meetingModel.facilitator.id" class="form-control" id="cboFacilitator" name="facilitator">
+                        <option value="">-SELECT-</option>
+                        <option *ngFor="let employee of employees" [value]="employee.id">{{ employee.lname }}, {{ employee.fname }} {{ employee.mname }}</option>
+                      </select>
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-secondary"><span class="glyphicon glyphicon-search"></span></button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-6">
+                <div class="row form-group">
+                   <div class="col-xs-12">
+                    <label for="cboAttendees">Attendees&nbsp;<span style="color: #ff0000">*</span></label>
+                    <select style="height: 90px"  class="form-control" multiple id="cboAttendees" name="attendees">
+                      <option *ngFor="let attendee of meetingModel.attendees" [value]="attendee.id">{{ attendee.lname }}, {{ attendee.fname }} {{ attendee.mname }}</option>
+                    </select>
+                    <a href="javascript:void(0);" (click) = "openEmployeeSearchDialog('employee')" class="pull-right" title="Add attendees">Click here to add attendees</a>
+                   </div>
+                </div>
+
+                <div class="row form-group">
+                  <div class="col-xs-12">
+                    <label for="txtDescription">About this meeting&nbsp;<span style="color: #ff0000">*</span></label>
+                    <textarea [(ngModel)] = "meetingModel.description" style="height:80px" class="form-control" id="txtDescription" name="description" required="true"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Grid section -->
+      <div class="row grid meeting-add-grid">
+        <!-- Table headers -->
+        <div>
+          <table class="table table-header topics-grid">
+            <tr>
+              <td class="counter">#</td>
+              <td class="topic">Topic</td>
+              <td class="type">Type</td>
+              <td class="note">Note</td>
+              <td class="owner">Owner</td>
+              <td class="due-date">Due Date</td>
+              <td class="status">Status</td>
+
+              <td class="action">Action</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Table body -->
+        <div>
+          <table class="table table-hover table-content topics-grid">
+            <tr *ngFor="let topic of meetingModel.topics"> <!-- # is deprecated, use let instead -->
+              <td class="counter"></td>
+              <td class="topic">{{ topic.name }}</td>
+              <td class="type">{{ topic.type }}</td>
+              <td class="note">{{ topic.notes }}</td>
+              <td class="owner">{{ topic.owner }}</td>
+              <td class="due-date">{{ topic.dueDate }}</td>
+              <td class="status">{{ topic.status }}</td>
+
+              <td class="action">
+                <!-- View -->
+                <a href="javascript:void(0);" title="View" ><span class="glyphicon glyphicon-list-alt"></span></a> &nbsp;&nbsp;
+
+                <!-- Set as team leader -->
+                <a *ngIf="_appGlobal.userSession.accessRoles.indexOf('ROLE_ADMIN') != -1" href="javascript:void(0);">
+                  <span class="glyphicon glyphicon-tag"></span>
+                </a>&nbsp;&nbsp;
+
+                <!-- Set as manager -->
+                <a *ngIf="_appGlobal.userSession.accessRoles.indexOf('ROLE_ADMIN') != -1" href="javascript:void(0);">
+                  <span  class="glyphicon glyphicon-tags"></span>
+                </a>
+
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <a style="margin-right:20px" class="pull-right" href="#" title="Add attendees">Click here to add topics</a>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-xs-6" style="padding:0px;">
+      <div class="date-update pull-left">
+        <a href="#" [routerLink]="['../']" class="btn btn-warning pull-right save-button" role="button">
+          <span class="glyphicon glyphicon-backward"></span> &nbsp; Back
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-6" style="padding:0px;">
+      <div class="pull-right">
+        <button class="btn btn-warning">
+          <span class="glyphicon glyphicon-eye-close"></span> &nbsp; Mark Close
+        </button>
+
+        <button class="btn btn-warning save-button">
+          <span class="glyphicon glyphicon-save"></span> &nbsp; Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
