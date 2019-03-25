@@ -6,12 +6,16 @@ pipeline {
         stage('Deploy to Tomcat') {
             steps {
 			 script {
-			   sh 'wget --user=admin --password=admin123 "http://nexus:8081/service/rest/v1/search/assets/download?repository=ibm-releases&format=maven2&group=com.ibm.ph&name=front-end&version=1.2.0&maven.artifactId=front-end&maven.extension=war" -O /usr/share/jenkins/ref/tomcat/edm-api.war'
-			  sh 'chmod 0777 /usr/share/jenkins/ref/tomcat/edm-api.war;
+			   sh 'wget --user=admin --password=admin123 "http://nexus:8081/service/rest/v1/search/assets/download?repository=ibm-releases&format=maven2&group=com.ibm.ph&name=front-end&version=1.2.0&maven.artifactId=front-end&maven.extension=war" -O /usr/share/jenkins/ref/tomcat/edm-api.war';
+			  sh 'chmod 0777 /usr/share/jenkins/ref/tomcat/edm-api.war';
 			 }
 		  }
         }
     }
 }
 
+<<<<<<< HEAD
 //https://github.com/liatrio/demo-deployment-pipeline
+=======
+//Reference: https://github.com/liatrio/demo-deployment-pipeline
+>>>>>>> d5d95847ef8e83a5b583d7bc8f522833adb7c739
