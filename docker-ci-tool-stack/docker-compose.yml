@@ -36,12 +36,12 @@ services:
       - SONAR_PORT=9000
       - SONAR_DB_PORT=5432
   tomcat:
-        networks:
-            - prodnetwork
-        restart: always
-        image: tomcat
+        build: ./tomcat
+        restart: always       
         ports:
             - "18888:8080"
+        networks:
+            - prodnetwork
         volumes:
             - tomcat:/usr/local/tomcat/webapps/
   sonardb:
