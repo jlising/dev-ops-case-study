@@ -2,8 +2,8 @@ pipeline {
     agent {
         label "master"
     }
-    stages {
-        stage('Deploy Releases') {
+	stages {
+        stage('Deploy to Tomcat') {
             steps {
 			 script {
 			   sh 'wget --user=admin --password=admin123 "http://nexus:8081/service/rest/v1/search/assets/download?repository=ibm-releases&format=maven2&group=com.ibm.ph&name=front-end&version=1.2.0&maven.artifactId=front-end&maven.extension=war" -O /usr/share/jenkins/ref/tomcat/edm-api.war'
