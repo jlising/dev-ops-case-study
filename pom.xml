@@ -24,7 +24,7 @@
         <repository>
             <id>ibm-release</id>
             <name>ibm-release</name>
-            <url>http://172.18.0.5:8081/repository/ibm-releases/</url>
+            <url>http://nexus:8081/repository/ibm-releases/</url>
         </repository>
     </repositories>
 
