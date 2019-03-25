@@ -14,8 +14,4 @@ pipeline {
     }
 }
 
-<<<<<<< HEAD
 //https://github.com/liatrio/demo-deployment-pipeline
-=======
-//Reference: https://github.com/liatrio/demo-deployment-pipeline
->>>>>>> d5d95847ef8e83a5b583d7bc8f522833adb7c739
