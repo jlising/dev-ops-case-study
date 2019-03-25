@@ -18,7 +18,7 @@ pipeline {
         NEXUS_PROTOCOL = "http"
 
         // Where your Nexus is running
-        NEXUS_URL = "172.18.0.2:8081"
+        NEXUS_URL = "nexus:8081"
 
         // Repository where we will upload the artifact
         NEXUS_REPOSITORY = "ibm-releases"
