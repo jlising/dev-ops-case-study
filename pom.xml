@@ -18,6 +18,12 @@
 
     <name>Employee Data Management Tool</name>
     <description>A management tool to monitor employee data</description>
+	
+	<scm>
+		<connection>scm:git:git@github.com:jlising/dev-ops-case-study.git</connection>
+		<url>https://github.com/jlising/dev-ops-case-study</url>
+		<developerConnection>scm:git:git@github.com:jlising/dev-ops-case-study.git</developerConnection>
+	</scm>
 
     <!-- Repositories -->
     <repositories>
@@ -684,5 +690,12 @@
             </plugin>
         </plugins>
     </build>
-
+	
+	<distributionManagement>
+	    <repository>
+	        <id>nexus-release-repository</id>
+	        <name>release-repository</name>
+	        <url>${REPOSITORY_URL}</url>
+	    </repository>
+</distributionManagement>
 </project>
