@@ -18,7 +18,7 @@ ARG docker_version=1.12.3
 RUN curl -sSL https://get.docker.com/ | sh && \
     apt-get install -y software-properties-common
 	
-RUN chmod +x /bin/docker
+RUN chmod +x /usr/bin/docker
 RUN usermod -aG docker jenkins
 
 USER jenkins
