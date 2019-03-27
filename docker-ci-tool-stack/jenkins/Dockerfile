@@ -16,8 +16,7 @@ RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 ARG docker_version=1.12.3
 RUN curl -sSL https://get.docker.com/ | sh && \
-    apt-get purge -y docker-engine && \
-    apt-get install docker-engine=${docker_version}-0~jessie && \
+    apt-get install -y docker-compose && \
     apt-get install -y software-properties-common
 	
 RUN chmod +x /bin/docker
